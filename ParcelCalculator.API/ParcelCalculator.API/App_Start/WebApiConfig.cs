@@ -1,24 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Castle.Windsor;
 using System.Web.Http;
+using System.Web.Http.Dispatcher;
 
 namespace ParcelCalculator.API
 {
     public static class WebApiConfig
     {
-        public static void Register(HttpConfiguration config)
+        public static void Register(HttpConfiguration config, IWindsorContainer container)
         {
-            // Web API configuration and services
+            //Setting the configuration for Json Formatting
+            var jsonFormatter = config.Formatters.JsonFormatter;
+            jsonFormatter.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
 
-            // Web API routes
-            config.MapHttpAttributeRoutes();
+            if (!config.Routes.ContainsKey("DefaultApi"))
+            {
+                config.Routes.MapHttpRoute(
+                   name: "DefaultApi",
+                   routeTemplate: "api/{controller}/{action}/{param}",
+                   defaults: new { param = RouteParameter.Optional });
+            }
 
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+            RegisterControllerActivator(container);
+        }
+
+        public static void RegisterControllerActivator(IWindsorContainer container)
+        {
+            GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerActivator), new ParcelCalculator.API.CastleWindsor.WindsorCompositionRoot(container));
         }
     }
 }

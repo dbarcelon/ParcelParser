@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParcelCalculator.API", "Par
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParcelCalculator.API.Tests", "ParcelCalculator.API.Tests\ParcelCalculator.API.Tests.csproj", "{6B8A43B6-9067-4633-BA76-B6DFC80BBE2A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParcelCalculator", "..\ParcelCalculator\ParcelCalculator.csproj", "{0B1160A6-5AD8-4554-AAF7-E420A75EEA51}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6B8A43B6-9067-4633-BA76-B6DFC80BBE2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B8A43B6-9067-4633-BA76-B6DFC80BBE2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B8A43B6-9067-4633-BA76-B6DFC80BBE2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B1160A6-5AD8-4554-AAF7-E420A75EEA51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B1160A6-5AD8-4554-AAF7-E420A75EEA51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B1160A6-5AD8-4554-AAF7-E420A75EEA51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B1160A6-5AD8-4554-AAF7-E420A75EEA51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

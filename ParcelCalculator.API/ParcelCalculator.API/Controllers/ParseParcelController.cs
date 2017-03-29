@@ -14,6 +14,7 @@ namespace ParcelCalculator.API.Controllers
     {
         private ParcelCalculatorAPIContext db = new ParcelCalculatorAPIContext();
 
+        [HttpPost]
         public PackagePriceDTO GetParcelPrice(PackageDTO packageDTO)
         {
             var packagePriceDTO = new PackagePriceDTO(); 
@@ -24,7 +25,7 @@ namespace ParcelCalculator.API.Controllers
                 packagePriceDTO.Message = string.Format("The Parcel Weight exceeded the maximum weight of {0}kg.", weightLimit.Weight);
                 return packagePriceDTO;
             }
-            var cubicDimension = packageDTO.Lenght * packageDTO.Breadth * packageDTO.Height;
+            var cubicDimension = packageDTO.Length * packageDTO.Breadth * packageDTO.Height;
             var packageTypeDimension = db.tblParcelDimensionConfigs.Where(r => (r.Length * r.Breadth * r.Height) >= cubicDimension).FirstOrDefault();
             if (packageTypeDimension==null)
             {

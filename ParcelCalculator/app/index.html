@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html ng-app="parcel.parser">
+<head>
+    <title>Parcel Calculator</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="bower_components/angular-block-ui/dist/angular-block-ui.min.css" rel="stylesheet" />
+    <link href="bower_components/angular-ui-grid/ui-grid.min.css" rel="stylesheet" />
+    <link href="bower_components/angular-material/angular-material.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body ng-controller="parcelController as vm" ng-cloak>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>Parcel Calculator Application</span>
+            </h2>
+        </div>
+    </md-toolbar>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <md-card>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span><strong>Parcel Parser</strong></span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-content style="padding-top: 20px;">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="label">Length</label>
+                                <input class="form-control" type="number"
+                                       ng-model="vm.data.Parcel.Length" />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="label">Breadth</label>
+                                <input class="form-control" type="number"
+                                       ng-model="vm.data.Parcel.Breadth" />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="label">Height</label>
+                                <input class="form-control" type="number"
+                                       ng-model="vm.data.Parcel.Height" />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="label">Weight</label>
+                                <input class="form-control" type="number"
+                                       ng-model="vm.data.Parcel.Weight" />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="label">Package Type</label>
+                                <input class="form-control" type="text"
+                                       ng-model="vm.data.Parcel.PackageType" readonly/>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="label">Weight</label>
+                                <input class="form-control" type="number"
+                                       ng-model="vm.data.Parcel.Cost" readonly/>
+                            </div>
+                        </div>
+                    </md-card-content>
+                </md-card>
+            </div>
+        </div>
+        <div class="row" style="padding: 10px;">
+            <div class="col-md-offset-10 col-md-2 col-sm-offset-8 col-sm-4 col-xs-offset-8 col-xs-4">
+                <button class="btn btn-primary" ng-click="vm.func.getParcel();">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/lodash/dist/lodash.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/angular-block-ui/dist/angular-block-ui.min.js"></script>
+    <script src="bower_components/angular-ui-grid/ui-grid.min.js"></script>
+    <script src="app.js"></script>
+    <script src="servicecallfactory.js"></script>
+    <script src="parser.controller.js"></script>
+    <script src="common-template/error-success-pop-up.controller.js"></script>
+    <script src="common-template/parcel-popup.service.js"></script>
+</body>
+</html>

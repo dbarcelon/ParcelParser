@@ -19,7 +19,7 @@ namespace ParcelCalculator.API.Tests
             };
 
             var packageDTO = new PackageDTO();
-            packageDTO.Lenght = 190;
+            packageDTO.Length = 190;
             packageDTO.Breadth = 260;
             packageDTO.Height = 150;
             packageDTO.Weight = 27;
@@ -36,7 +36,7 @@ namespace ParcelCalculator.API.Tests
             };
 
             var packageDTO = new PackageDTO();
-            packageDTO.Lenght = 190;
+            packageDTO.Length = 190;
             packageDTO.Breadth = 260;
             packageDTO.Height = 150;
             packageDTO.Weight = 25;
@@ -54,7 +54,7 @@ namespace ParcelCalculator.API.Tests
             };
 
             var packageDTO = new PackageDTO();
-            packageDTO.Lenght = 220;
+            packageDTO.Length = 220;
             packageDTO.Breadth = 290;
             packageDTO.Height = 150;
             packageDTO.Weight = 25;
@@ -72,7 +72,7 @@ namespace ParcelCalculator.API.Tests
             };
 
             var packageDTO = new PackageDTO();
-            packageDTO.Lenght = 300;
+            packageDTO.Length = 300;
             packageDTO.Breadth = 550;
             packageDTO.Height = 180;
             packageDTO.Weight = 25;
@@ -90,7 +90,7 @@ namespace ParcelCalculator.API.Tests
             };
 
             var packageDTO = new PackageDTO();
-            packageDTO.Lenght = 400;
+            packageDTO.Length = 400;
             packageDTO.Breadth = 550;
             packageDTO.Height = 200;
             packageDTO.Weight = 25;

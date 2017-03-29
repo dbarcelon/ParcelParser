@@ -18,10 +18,37 @@ namespace ParcelCalculator.API.Controllers
         private ParcelCalculatorAPIContext db = new ParcelCalculatorAPIContext();
 
         // GET: api/ParcelParser
-        public IQueryable<tblParcelDimensionConfig> GettblParcelDimensionConfigs()
+        public IQueryable<ParcelDimensionDTO> GetParcelDimensions()
         {
-            return db.tblParcelDimensionConfigs;
+            db.Configuration.ProxyCreationEnabled = false;
+            var result = from data in db.tblParcelDimensionConfigs
+                         select new ParcelDimensionDTO()
+                         {
+                             Id = data.Id,
+                             PackageType = data.PackageType,
+                             Length = data.Length,
+                             Breadth = data.Breadth,
+                             Height = data.Height,
+                             Cost = data.Cost
+                         };
+            return result;
         }
+
+        //public HttpResponseMessage GetParcelDimensions()
+        //{
+        //    db.Configuration.ProxyCreationEnabled = false;
+        //    var result = from data in db.tblParcelDimensionConfigs
+        //                 select new ParcelDimensionDTO()
+        //                 {
+        //                     Id = data.Id,
+        //                     PackageType = data.PackageType,
+        //                     Length = data.Length,
+        //                     Breadth = data.Breadth,
+        //                     Height = data.Height,
+        //                     Cost = data.Cost
+        //                 };
+        //    return Request.CreateResponse(HttpStatusCode.OK, new { ParcelData = result});
+        //}
 
         // GET: api/ParcelParser/5
         [ResponseType(typeof(tblParcelDimensionConfig))]

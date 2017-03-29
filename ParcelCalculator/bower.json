@@ -1,0 +1,34 @@
+{
+  "name": "parcelparser",
+  "description": "Parcel Calculator",
+  "authors": [
+    "daniel p. barcelon"
+  ],
+  "license": "parcelparser",
+  "keywords": [ ],
+  "moduleType": [ ],
+  "homepage": "index.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.3",
+    "angular-material": "^1.0.8",
+    "angular-block-ui": "^0.2.2",
+    "angular-bootstrap": "^2.0.0",
+    "angular-ui-grid": "^4.0.2",
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.2",
+    "json3": "^3.3.2",
+    "lodash": "^4.6.1"
+  },
+  "devDependencies": { },
+  "resolutions": {
+    "angular": "^1.4.8"
+  }
+}

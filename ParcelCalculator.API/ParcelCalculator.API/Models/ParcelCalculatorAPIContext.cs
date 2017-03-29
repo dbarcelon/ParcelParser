@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 
@@ -16,7 +17,11 @@ namespace ParcelCalculator.API.Models
         // http://msdn.microsoft.com/en-us/data/jj591621.aspx
     
         public ParcelCalculatorAPIContext() : base("name=ParcelCalculatorAPIContext")
+
         {
+            this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.ProxyCreationEnabled = false;
+            //Debug.Write(Database.Connection.ConnectionString);
         }
 
         public System.Data.Entity.DbSet<ParcelCalculator.API.Models.tblParcelDimensionConfig> tblParcelDimensionConfigs { get; set; }
