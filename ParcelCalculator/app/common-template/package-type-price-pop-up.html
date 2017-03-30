@@ -1,0 +1,19 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span><strong>Parcel Price List</strong></span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content style="padding-top: 20px;">
+                <div class="grid" ui-grid="vm.data.gridParcelListOptions"></div>
+            </md-card-content>
+        </md-card>
+    </div>
+</div>
+<div class="row" style="padding: 10px;">
+    <div class="col-md-offset-10 col-md-2 col-sm-offset-8 col-sm-4 col-xs-offset-8 col-xs-4">
+        <button class="btn btn-default" ng-click="vm.func.cancel();">Close</button>
+    </div>
+</div>

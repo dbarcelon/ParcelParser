@@ -50,14 +50,24 @@
                                        ng-model="vm.data.Parcel.Weight" />
                             </div>
                             <div class="col-md-6">
+                                <label class="label">Quantity</label>
+                                <input class="form-control" type="number"
+                                       ng-model="vm.data.Parcel.Quantity" />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="label">Cost</label>
+                                <input class="form-control" type="number"
+                                       ng-model="vm.data.Parcel.Cost" readonly />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="label">Total Price</label>
+                                <input class="form-control" type="number"
+                                       ng-model="vm.data.Parcel.TotalPrice" readonly />
+                            </div>
+                            <div class="col-md-6">
                                 <label class="label">Package Type</label>
                                 <input class="form-control" type="text"
                                        ng-model="vm.data.Parcel.PackageType" readonly/>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="label">Weight</label>
-                                <input class="form-control" type="number"
-                                       ng-model="vm.data.Parcel.Cost" readonly/>
                             </div>
                         </div>
                     </md-card-content>
@@ -67,6 +77,21 @@
         <div class="row" style="padding: 10px;">
             <div class="col-md-offset-10 col-md-2 col-sm-offset-8 col-sm-4 col-xs-offset-8 col-xs-4">
                 <button class="btn btn-primary" ng-click="vm.func.getParcel();">Submit</button>
+                <button class="btn btn-primary" ng-click="vm.func.showParcelPriceList();">Show Parcel Price List</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <md-card>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span><strong>Package List Detail</strong></span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-content style="padding-top: 20px;">
+                        <div class="grid" ui-grid="vm.data.gridOptions"></div>
+                    </md-card-content>
+                </md-card>
             </div>
         </div>
     </div>
@@ -83,5 +108,7 @@
     <script src="parser.controller.js"></script>
     <script src="common-template/error-success-pop-up.controller.js"></script>
     <script src="common-template/parcel-popup.service.js"></script>
+    <script src="common-template/confirm-pop-up.controller.js"></script>
+    <script src="common-template/package-type-price-pop-up.controller.js"></script>
 </body>
 </html>

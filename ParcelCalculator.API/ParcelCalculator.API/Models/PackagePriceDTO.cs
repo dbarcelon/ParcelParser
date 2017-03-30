@@ -9,6 +9,7 @@ namespace ParcelCalculator.API.Models
     {
         public string Message { get; set; }
         public string PackageType { get; set; }
-        public double Price { get; set; }
+        public double Cost { get; set; }
+        public double TotalPrice { get; set; }
     }
 }

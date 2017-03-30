@@ -35,7 +35,8 @@ namespace ParcelCalculator.API.Controllers
 
             packagePriceDTO.Message = "OK";
             packagePriceDTO.PackageType = packageTypeDimension.PackageType;
-            packagePriceDTO.Price = packageTypeDimension.Cost;
+            packagePriceDTO.Cost = packageTypeDimension.Cost;
+            packagePriceDTO.TotalPrice = packageTypeDimension.Cost * packageDTO.Quantity;     
             return packagePriceDTO;         
         }
         protected override void Dispose(bool disposing)

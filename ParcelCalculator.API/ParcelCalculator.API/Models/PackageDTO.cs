@@ -11,6 +11,6 @@ namespace ParcelCalculator.API.Models
         public double Breadth { get; set; }
         public double Height { get; set; }
         public double Weight { get; set; }
-        public int NoOfPackage { get; set; }
+        public int Quantity { get; set; }
     }
 }

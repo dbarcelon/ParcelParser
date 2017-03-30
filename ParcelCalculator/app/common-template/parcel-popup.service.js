@@ -2,7 +2,6 @@
     'use strict'
     angular.module('parcel.parser').service('popupService', popupService);
 
-    //popupService.$inject = ["$modal"];
     popupService.$inject = ["$uibModal"];
 
     function popupService(uibModal) {
@@ -31,39 +30,62 @@
             }, function () { })
         }
 
-        //var addUpdatePersonInformation = function (personDetails, mainController, saveCallback, closeCallback) {
-        //    var modalInstance = uibModal.open({
-        //        templateUrl: "common-template/add-update-person-information-pop-up.html",
-        //        controller: "addUpdatePersonInformationPopupController",
-        //        controllerAs: "vm",
-        //        size: 'lg',
-        //        backdrop: 'static',
-        //        keyboard: false,
-        //        resolve: {
-        //            popupInfo: function () {
-        //                return {
-        //                    personDetails: personDetails,
-        //                    mainController: mainController
-        //                }
-        //            }
-        //        }
-        //    });
+        var confirmPopUp = function (alertMessage, callbackParameter, yesCallback, noCallback) {
+            var modalInstance = uibModal.open({
+                animation: true,
+                templateUrl: "common-template/confirm-pop-up.html",
+                controller: "confirmPopupController",
+                controllerAs: "vm",
+                backdrop: 'static',
+                keyboard: false,
+                resolve: {
+                    popupInfo: function () {
+                        return {
+                            message: alertMessage,
+                            callbackParameter: callbackParameter
+                        }
+                    }
+                }
+            });
+            modalInstance.result.then(function (popUpInfo) {
+                if (popUpInfo.actionName === "Yes") {
+                    if (yesCallback && typeof (yesCallback) === 'function') { yesCallback(popUpInfo.callbackParameter); }
+                }
+            }, function () { })
+        }
 
-            //modalInstance.result.then(function (popupInfo) {
-            //    if (popupInfo.action === "save") {
-            //        if (saveCallback && typeof (saveCallback) === 'function') { saveCallback(popupInfo); }
-            //    }
-            //    else if (popupInfo.action === "close") {
-            //        if (closeCallback && typeof (closeCallback) === 'function') { closeCallback(popupInfo); }
-            //    }
-            //}, function () {
-            //    //No Operation
-            //});
-        //}
+
+        var showParcelPriceList = function (parcelPriceListData, closeCallback) {
+            var modalInstance = uibModal.open({
+                templateUrl: "common-template/package-type-price-pop-up.html",
+                controller: "parcelPriceListPopupController",
+                controllerAs: "vm",
+                size: 'lg',
+                backdrop: 'static',
+                keyboard: false,
+                resolve: {
+                    popupInfo: function () {
+                        return {
+                            parcelPriceListData: parcelPriceListData
+                        }
+                    }
+                }
+            });
+
+            modalInstance.result.then(function (popupInfo) {
+                if (popupInfo.action === "close") {
+                    if (closeCallback && typeof (closeCallback) === 'function') { closeCallback(popupInfo); }
+                }
+            }, function () {
+                //No Operation
+            });
+        }
 
 
         return {
-            successErrorPopUp: successErrorPopUp
+            successErrorPopUp: successErrorPopUp,
+            confirmPopUp: confirmPopUp,
+            showParcelPriceList: showParcelPriceList
         };
     }
 })();
